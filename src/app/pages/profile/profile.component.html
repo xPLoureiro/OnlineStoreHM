@@ -1,0 +1,44 @@
+<h2 class="title">Perfil do Utilizador</h2>
+
+<div class="profileContainer">
+
+  <form *ngIf="!isEditing" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of ['nome', 'email', 'morada', 'cod_postal', 'pais']">
+      <label>{{ field | titlecase }}:</label>
+      <p>{{ user[field] }}</p>
+    </div>
+
+    <button class="buttonProfile" type="button" (click)="enableEditing()">Alterar dados do utilizador</button>
+  </form>
+
+  <form *ngIf="isEditing" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of ['nome', 'email', 'morada', 'cod_postal', 'pais']">
+      <label>{{ field | titlecase }}:</label>
+      <input class="userInfoInput" [(ngModel)]="user[field]" [name]="field" required>
+    </div>
+
+    <button class="buttonProfile" type="submit">Guardar alterações</button>
+    <button id="buttonProfile" type="button" (click)="cancelEditing()">Cancelar</button>
+  </form>
+
+  <div class="passwordSection">
+    <h3>Alterar Senha</h3>
+    <form (ngSubmit)="onChangePassword()">
+      <label>Senha Atual:</label>
+      <input class="passwordInput" type="password" [(ngModel)]="passwords.oldPassword" name="oldPassword" required>
+
+      <label>Nova Senha:</label>
+      <input class="passwordInput" type="password" [(ngModel)]="passwords.newPassword" name="newPassword" required>
+
+      <label>Confirmar Nova Senha:</label>
+      <input class="passwordInput" type="password" [(ngModel)]="passwords.confirmPassword" name="confirmPassword"
+        required>
+
+      <button class="buttonProfile" type="submit">Alterar Senha</button>
+    </form>
+  </div>
+</div>
+
+<div>
+  <button (click)="voltar()">Voltar</button>
+</div>

@@ -1,0 +1,23 @@
+.productDetailContainer {
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+    line-height: 2;
+}
+
+#brand {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#name {
+    font-size: 1.5rem;
+}
+
+.productDetailContainer img {
+    margin: 20px;
+}
+
+.productDetailContainer p {
+    font-size: 1.2rem;
+}

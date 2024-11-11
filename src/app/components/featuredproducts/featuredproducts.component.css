@@ -1,0 +1,44 @@
+  h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 20px 0;
+  }
+
+  .productGrid {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: 992px) {
+    .productGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .productGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .productGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .productCard {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .productImage {
+    width: 100%;
+    display: block;
+  }
+
+  .productCard.hover .productImage {
+    border: 2px solid red;
+  }

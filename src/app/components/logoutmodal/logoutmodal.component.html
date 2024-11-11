@@ -1,0 +1,16 @@
+<div class="modalLogoutOverlay" (click)="closeModal()">
+
+  <div class="modalLogoutContent" (click)="$event.stopPropagation()">
+
+    <h3>Fecho de Sessão</h3>
+
+    <p>Quer terminar a sessão?</p>
+
+    <div class="modalLogoutActions">
+      <button (click)="confirmLogout()">Sim</button>
+      <button (click)="closeModal()">Não</button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+{
+        "utilizadores": [
+        {
+            "id": 1,
+            "nome": "Admin",
+            "email": "admin@example.com",
+            "senha": "Admin@123",
+            "morada": "Rua do Admin",
+            "cod_postal": "9999-007",
+            "pais": "Portugal"
+        }
+    ]
+}

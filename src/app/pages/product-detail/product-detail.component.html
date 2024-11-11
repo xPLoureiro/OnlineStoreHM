@@ -1,0 +1,23 @@
+<section class="productDetailContainer" *ngIf="produto">
+
+    <p id="brand">{{ produto.marca }}</p>
+
+    <p id="name">{{ produto.nome }}</p>
+
+    <img [src]="'/' + produto.foto_principal" alt="{{ produto.nome }}">
+
+    <img [src]="'/' + produto.foto_secundaria" alt="{{ produto.nome }}">
+
+    <p>{{ produto.tipo_de_produto }} {{ produto.cor }}</p>
+
+    <p>{{ produto.preco | customcurrency }}</p>
+
+    <p>{{ produto.descricao }}</p>
+
+    <button class="buttonProducts" *ngIf="isUserLoggedIn()" (click)="adicionarAoCarrinho(produto)">Adicionar ao
+        carrinho</button>
+    <div>
+        <button (click)="voltar()">Voltar</button>
+    </div>
+
+</section>

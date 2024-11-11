@@ -1,0 +1,162 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.trigram {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.mat-mdc-menu-item {
+  overflow: initial;
+}
+
+a:-webkit-any-link {
+  color: black;
+}
+
+.mat-menu-panel {
+  margin: 0;
+}
+
+#headerLogo {
+  display: flex;
+  max-width: 70px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#headerLogoRWD {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+}
+
+.headerIcons {
+  position: absolute;
+  display: flex;
+  margin: 0;
+  right: 0;
+  gap: 20px;
+  padding: 0 20px;
+  color: black;
+  font-size: 1.05rem;
+  transition: transform 0.3s ease;
+}
+
+.headerIcons i:hover {
+  transform: scale(0.9);
+}
+
+@media (min-width: 601px) and (max-width: 1222px) {
+  #header {
+    align-items: center;
+    padding: 10px;
+    min-height: 140px;
+  }
+
+  .navbar {
+    margin-top: 10px;
+  }
+
+  #headerLogo {
+    max-width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .headerIcons {
+    position: fixed;
+    right: 20px;
+    gap: 15px;
+    padding: 10px 0;
+    margin-top: 100px;
+  }
+
+  .headerIcons i {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .trigram {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px 10px 10px 0;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu.show {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .headerIcons {
+    position: static;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  #headerLogo {
+    margin: 10px 0;
+    max-width: 60px;
+  }
+
+  #headerLogoRWD {
+    display: flex;
+    max-width: 70px;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .headerIcons i {
+    font-size: 1.3rem;
+  }
+}

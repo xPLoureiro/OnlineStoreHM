@@ -1,0 +1,115 @@
+.produtosContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-left: 220px;
+}
+
+.produtoCard {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.wishlistIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.text-red {
+  color: red;
+}
+
+.imagemContainer img {
+  width: 100%;
+  max-width: 200px;
+  transition: opacity 0.3s;
+}
+
+#titleProducts {
+  margin-left: 220px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.filtroContainer {
+  width: 200px;
+  float: left;
+  background-color: #f7f7f7;
+}
+
+.filtroContainer h3 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 5px;
+}
+
+.filtroContainer li {
+  list-style: none;
+  margin: 5px;
+}
+
+.filtroContainer ul {
+  padding: 0px 20px;
+}
+
+.buttonCarrinho {
+  grid-column: 1 / -1;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.buttonCarrinho:hover {
+  background-color: #444;
+  transform: scale(0.9);
+}
+
+.buttonVerMais {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.buttonVerMais:hover {
+  background-color: #444;
+  transform: scale(0.9);
+}
+
+.navegacao {
+  margin-left: 220px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navegacao button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navegacao button:hover {
+  transform: scale(0.9);
+}
+
+.navegacao button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

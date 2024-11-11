@@ -1,0 +1,34 @@
+<h2 class="title">Wishlist</h2>
+<div class="wishlistContainer">
+
+  <div *ngIf="wishlistProdutos.length > 0; else emptyWishlist">
+    <div *ngFor="let produto of wishlistProdutos" class="produtoCardWishlist">
+
+      <a [routerLink]="['/products', produto.id]">
+        <img class="wishlistImg" [src]="imagemAtual[produto.id] || '/' + produto.foto_principal"
+          alt="{{ produto.nome }}" (mouseover)="trocarImagem(produto.id, produto.foto_secundaria)"
+          (mouseout)="trocarImagem(produto.id, produto.foto_principal)" />
+      </a>
+
+      <div class="produtoInfoWishlist">
+        <h3>{{ produto.marca }}</h3>
+        <p>{{ produto.nome }}</p>
+        <p>{{ produto.preco | customcurrency }}</p>
+      </div>
+
+      <div class="wishlistActions">
+        <button class="btnWishlist" (click)="confirmarRemocao(produto.id)">Remover</button>
+        <button class="buttonCarrinho" (click)="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyWishlist>
+    <p class="emptyMessage">A sua wishlist está vazia.</p>
+  </ng-template>
+
+</div>
+
+<div>
+  <button (click)="voltar()">Voltar</button>
+</div>

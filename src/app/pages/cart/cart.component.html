@@ -1,0 +1,41 @@
+<h2 class="title">Carrinho</h2>
+<div *ngIf="cartItems.length; else emptyCart">
+  <h2>Carrinho de Compras</h2>
+  <p>Total de Produtos: {{ cartItems.length }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Marca</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of cartItems" (click)="viewProduct(produto.id)">
+        <td><img [src]="produto.foto_principal" alt="{{ produto.nome }}" width="50"></td>
+        <td>{{ produto.marca }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.preco | customcurrency }}</td>
+        <td>
+          <button class="buttonRemove"
+            (click)="removerDoCarrinho(produto.id); $event.stopPropagation()"> X </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td>{{ getTotal() | customcurrency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #emptyCart>
+  <p>O carrinho de compras está vazio.</p>
+</ng-template>
+
+<div>
+  <button (click)="voltar()">Voltar</button>
+</div>

@@ -1,0 +1,98 @@
+<div id="header">
+
+    <div>
+        <a routerLink="">
+            <img id="headerLogoRWD" src="logo.png" title="H&M">
+        </a>
+    </div>
+
+    <nav class="navbar">
+
+        <ul class="menu" [ngClass]="{ 'show': isMenuOpen }">
+
+            <li mat-menu-item [matMenuTriggerFor]="menuHomem">Homem</li>
+            <mat-menu #menuHomem="matMenu">
+                <button mat-menu-item>Casacos</button>
+                <button mat-menu-item>Camisas</button>
+                <button mat-menu-item>Calças</button>
+                <button mat-menu-item>Sweatshirts</button>
+                <button mat-menu-item>Polos</button>
+                <button mat-menu-item>Sapatos</button>
+                <button mat-menu-item [routerLink]="['/products']">Todos</button>
+            </mat-menu>
+
+            <li mat-menu-item [matMenuTriggerFor]="menuMulher">Mulher</li>
+            <mat-menu #menuMulher="matMenu">
+                <button mat-menu-item>Vestidos</button>
+                <button mat-menu-item>Blusões</button>
+                <button mat-menu-item>Coletes</button>
+                <button mat-menu-item>Jeans</button>
+                <button mat-menu-item>Saias</button>
+                <button mat-menu-item>Calções</button>
+                <button mat-menu-item>Lingerie</button>
+                <button mat-menu-item>Sapatos</button>
+                <button mat-menu-item>Malas</button>
+                <button mat-menu-item>Todos</button>
+            </mat-menu>
+
+            <div>
+                <a routerLink="">
+                    <img id="headerLogo" src="logo.png" title="H&M">
+                </a>
+            </div>
+
+            <li mat-menu-item [matMenuTriggerFor]="menuCrianca">Criança</li>
+            <mat-menu #menuCrianca="matMenu">
+                <button mat-menu-item>Menina | 6-14 Anos</button>
+                <button mat-menu-item>Menino | 6-14 Anos</button>
+                <button mat-menu-item>Bebé Menina | 3 Meses - 5 Anos</button>
+                <button mat-menu-item>Bebé Menino | 3 Meses - 5 Anos</button>
+                <button mat-menu-item>Mini | 0-12 Meses</button>
+            </mat-menu>
+
+            <li mat-menu-item [matMenuTriggerFor]="menuAcessorios">Acessórios</li>
+            <mat-menu #menuAcessorios="matMenu">
+                <button mat-menu-item>Malas</button>
+                <button mat-menu-item>Pulseiras</button>
+                <button mat-menu-item>Anéis</button>
+            </mat-menu>
+        </ul>
+
+    </nav>
+
+    <div class="headerIcons">
+
+        <ng-container *ngIf="isAuthenticated; else notLoggeIn">
+            <span>Bem-vindo(a), {{ userName }}</span>
+            <a routerLink="/wishlist" title="Wishlist">
+                <i class="fa-regular fa-clipboard"></i>
+            </a>
+            <a routerLink="/cart" title="Carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a routerLink="/profile" title="Perfil">
+                <i class="fa-regular fa-user"></i>
+            </a>
+            <a title="Logout" (click)="openLogoutModal()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </ng-container>
+
+        <ng-template #notLoggeIn>
+            <a routerLink="/register" title="Registo">
+                <i class="fa-solid fa-user-plus"></i>
+            </a>
+            <a title="Login" (click)="openLoginModal()">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a>
+        </ng-template>
+    </div>
+
+    <span class="trigram" (click)="toggleMenu()">☰</span>
+
+</div>
+
+<app-login-modal *ngIf="showLoginModal" (closeModal)="closeLoginModal()"></app-login-modal>
+
+<app-logoutmodal *ngIf="isLogoutModalVisible" (closeModalEvent)="closeLogoutModal()" (confirmLogoutEvent)="logout()">
+</app-logoutmodal>

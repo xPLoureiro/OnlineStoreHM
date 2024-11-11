@@ -1,0 +1,87 @@
+.wishlistContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.wishlistImg {
+  width: 250px;
+  height: auto;
+}
+
+.produtoCardWishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.produtoInfoWishlist {
+  margin: auto 40px;
+  text-wrap: wrap;
+  max-width: 100px;
+  text-align: center;
+}
+
+.btnWishlist {
+  background-color: red;
+  color: white;
+  margin: 5px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.btnWishlist:hover {
+  transform: scale(0.9);
+}
+
+.buttonCarrinho {
+  grid-column: 1 / -1;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.buttonCarrinho:hover {
+  background-color: #444;
+  transform: scale(0.9);
+}
+
+.emptyMessage {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .produtoCardWishlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .produtoInfoWishlist {
+    margin: 10px 0;
+    max-width: none;
+  }
+
+  .wishlistImg {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .btnWishlist,
+  .buttonCarrinho {
+    width: 100%;
+    max-width: 200px;
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,64 @@
+.modalLoginOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalLoginContent {
+  background-color: #f9f9f9;
+  padding: 20px;
+  position: relative;
+  border-radius: 8px;
+  max-width: 350px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#titleModalLogin {
+  margin-bottom: 10px;
+}
+
+label,
+input {
+  margin: 10px 5px;
+  padding: 5px;
+}
+
+.modalLoginContent button {
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.closeButton {
+  position: absolute;
+  padding: 5px 7px;
+  top: 0px;
+  right: 20px;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: #c2b6b6;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.closeButton:hover {
+  color: white;
+  background: grey;
+  transform: scale(0.9);
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

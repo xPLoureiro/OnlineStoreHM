@@ -1,0 +1,29 @@
+<div class="modalLoginOverlay" (click)="closeModal.emit()">
+  <div class="modalLoginContent" (click)="$event.stopPropagation()">
+
+    <button class="closeButton" (click)="closeModal.emit()">X</button>
+
+    <h3 id="titleModalLogin">Controlo de acessos</h3>
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <div>
+        <label for="email">E-mail: </label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required #emailInput="ngModel" />
+
+        <div *ngIf="emailInput.invalid && emailInput.touched" class="errorMessage">
+          O e-mail tem um formato incorreto!
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Senha: </label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <div *ngIf="loginError" class="errorMessage">
+        {{ loginError }}
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Validar</button>
+    </form>
+  </div>
+</div>

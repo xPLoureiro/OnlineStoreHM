@@ -1,0 +1,45 @@
+.modalLogoutOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalLogoutContent {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.modalLogoutActions button {
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.modalLogoutActions button:first-child {
+  background-color: #aaa;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.modalLogoutActions button:last-child {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.modalLogoutActions button:hover {
+  transform: scale(0.9);
+}

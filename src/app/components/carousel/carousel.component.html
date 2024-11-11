@@ -1,0 +1,9 @@
+<div class="carouselContainer">
+
+  <div class="carouselTitle">SALDOS</div>
+
+  <div class="carouselSlides" [style.transform]="getSlideTransform()">
+    <img *ngFor="let image of images" [src]="image" class="carouselImage" alt="Slide Image">
+  </div>
+
+</div>

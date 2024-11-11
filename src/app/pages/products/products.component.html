@@ -1,0 +1,70 @@
+<div>
+  <h2 id="titleProducts">Homem</h2>
+</div>
+
+<div class="filtroContainer">
+  <h3>Tipo</h3>
+  <ul>
+    <li *ngFor="let tipo of filtros.tipo_de_produto">
+      <label>
+        <input type="radio" name="tipo" [value]="tipo" [(ngModel)]="tipoFiltro" (change)="aplicarFiltros()" /> {{ tipo
+        }}
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="tipo" value="Todos" [(ngModel)]="tipoFiltro" (change)="aplicarFiltros()" /> Todos
+      </label>
+    </li>
+  </ul>
+
+  <h3>Cor</h3>
+  <ul>
+    <li *ngFor="let cor of filtros.cor">
+      <label>
+        <input type="radio" name="cor" [value]="cor" [(ngModel)]="corFiltro" (change)="aplicarFiltros()" /> {{ cor }}
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="radio" name="cor" value="Todos" [(ngModel)]="corFiltro" (change)="aplicarFiltros()" /> Todos
+      </label>
+    </li>
+  </ul>
+  <h3> Total: {{ produtosFiltrados.length }}</h3>
+</div>
+
+<div class="produtosContainer">
+
+  <div *ngFor="let produto of produtosVisiveis" class="produtoCard">
+    <div class="imagemContainer">
+      <a [routerLink]="['/products', produto.id]">
+        <img [src]="imagemAtual[produto.id] || '/' + produto.foto_principal" alt="{{ produto.nome }}"
+          (mouseover)="trocarImagem(produto.id, produto.foto_secundaria)"
+          (mouseout)="trocarImagem(produto.id, produto.foto_principal)" />
+      </a>
+      <div class="wishlistIcon" *ngIf="isUserLoggedIn()">
+
+        <i class="wishlistIcon" [ngClass]="wishlist.includes(produto.id) ? 'fas fa-star text-red' : 'far fa-star'"
+          (click)="toggleWishlist(produto.id)"></i>
+
+      </div>
+
+    </div>
+    <h3 id="brand">{{ produto.marca }}</h3>
+    <p id="name">{{ produto.nome }}</p>
+    <p>{{ produto.preco | customcurrency }}</p>
+    <button class="buttonCarrinho" *ngIf="isUserLoggedIn()" (click)="adicionarAoCarrinho(produto)">Adicionar ao
+      carrinho</button>
+  </div>
+
+</div>
+
+<div class="navegacao">
+  <button (click)="paginaAnterior()" [disabled]="paginaAtual === 0">Anterior</button>
+  <button (click)="proximaPagina()" [disabled]="!temProximaPagina()">Próximo</button>
+</div>
+
+<div>
+  <button (click)="voltar()">Voltar</button>
+</div>
