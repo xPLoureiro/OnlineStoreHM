@@ -2,8 +2,10 @@
 
 <div class="productGrid">
 
-  <div *ngFor="let product of featuredProducts" class="productCard" (click)="goToProductPage(product.id)"
-    [class.hover]="hoveredProductId === product.id" (mouseover)="hoveredProductId = product.id"
+  <div *ngFor="let product of featuredProducts" class="productCard" 
+    (click)="goToProductPage(product.id)"
+    [class.hover]="hoveredProductId === product.id" 
+    (mouseover)="hoveredProductId = product.id"
     (mouseleave)="hoveredProductId = null">
     <img [src]="product.foto_principal" [alt]="product.nome" class="productImage" />
   </div>
